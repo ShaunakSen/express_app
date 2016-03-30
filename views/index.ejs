@@ -25,7 +25,7 @@
     <%
     videodata.categories.forEach(function(item){
     %>
-    <li><%= item.categoryName %></li>
+    <li><a href="https://thenewboston.com/videos_food.php?cat=<%=item.categoryID%>"> <%= item.categoryName %></a></li>
     <% }); %>
 </ul>
 </body>
