@@ -1,6 +1,11 @@
 <html>
 <head>
-    <title><%= title %></title>
+    <title><%= title + " points: " + points %></title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,6 +19,14 @@
     <% for(var i = 0; i < 5; ++i){ %>
     <li>Mini</li>
     <% } %>
+</ul>
+<h4>Displaying names of Playlist: <%= videodata.categoryName %></h4>
+<ul>
+    <%
+    videodata.categories.forEach(function(item){
+    %>
+    <li><%= item.categoryName %></li>
+    <% }); %>
 </ul>
 </body>
 </html>

@@ -5,8 +5,14 @@ var cookieParser = require('cookie-parser'); //handling cookies
 var bodyParser = require('body-parser'); // whenever u wanna parse text body or JSON body
 
 var routes = require('./routes/index');
+var about = require('./routes/about');
 
 var app = express(); //initialize app to use express
+
+app.locals.points="131313";
+//it makes the variable local to ur app ie basically a global var
+
+//app.locals.videodata = require("./videodata.json");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-
+app.use('/about',about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,7 +44,7 @@ if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
-      message: err.messaggite,
+      message: err.message,
       error: err
     });
   });
